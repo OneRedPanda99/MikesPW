@@ -36,7 +36,7 @@
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── FADE IN ── */
+    /* FADE IN */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -44,7 +44,7 @@
     }
     .fade-in.visible { opacity: 1; transform: none; }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky; top: 0; left: 0; right: 0; z-index: 100;
       background: var(--white);
@@ -105,7 +105,7 @@
       border-radius: var(--radius); font-weight: 700; font-size: 1rem;
     }
 
-    /* ── HERO ── */
+    /* HERO */
     #hero {
       padding: 7rem 2.5rem 5rem;
       border-bottom: 1px solid var(--gray-lt);
@@ -160,10 +160,14 @@
     }
     .hero-trust-item i { color: var(--blue); font-size: 0.85rem; }
 
+    /* Mascot with reduced radius */
     .hero-mascot { display: flex; flex-direction: column; align-items: center; }
-    .hero-mascot img { width: 100%; max-width: 340px; height: auto; border-radius: 10px; }
+    .hero-mascot img {
+      width: 100%; max-width: 340px; height: auto;
+      border-radius: 4px;
+    }
 
-    /* ── STRIP ── */
+    /* STRIP */
     .info-strip {
       background: var(--blue); padding: 1rem 2.5rem;
       display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
@@ -176,7 +180,7 @@
     .strip-item span { color: var(--white); font-weight: 800; }
     .strip-item i { opacity: 0.7; font-size: 0.8rem; }
 
-    /* ── SECTION SHARED ── */
+    /* SECTION SHARED */
     .max-w { max-width: 1100px; margin: 0 auto; }
     .section-tag {
       font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem;
@@ -194,89 +198,43 @@
       line-height: 1.7; margin-bottom: 3rem;
     }
 
-    /* ── GALLERY (Before/After Sliders) ── */
-    #gallery { background: var(--cream); padding: 6rem 2.5rem; border-top: 1px solid var(--gray-lt); border-bottom: 1px solid var(--gray-lt); }
-
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1.75rem;
-    }
-    .gallery-label {
-      font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem;
-      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--black); margin-bottom: 0.6rem;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .gallery-label i { color: var(--blue); }
-
-    /* Before/After Slider */
-    .ba-wrap {
-      position: relative; background: var(--gray-lt);
-      border-radius: 8px; overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.1);
-      cursor: ew-resize;
-      user-select: none; -webkit-user-select: none;
-      touch-action: pan-y;
-    }
-    .ba-wrap > img {
-      display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover;
-      pointer-events: none;
-    }
-    .ba-before {
-      position: absolute; top: 0; left: 0; height: 100%; overflow: hidden;
-    }
-    .ba-before img {
-      position: absolute; top: 0; left: 0; height: 100%;
-      max-width: none; pointer-events: none; object-fit: cover;
-    }
-    .ba-label-before, .ba-label-after {
-      position: absolute; top: 0.6rem;
-      font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.08em; padding: 0.25rem 0.6rem;
-      border-radius: 4px; pointer-events: none; z-index: 2;
-    }
-    .ba-label-before { left: 0.6rem; background: rgba(0,0,0,0.55); color: #fff; }
-    .ba-label-after  { right: 0.6rem; background: var(--blue); color: #fff; }
-    .ba-divider {
-      position: absolute; top: 0; bottom: 0; width: 3px;
-      background: var(--white); box-shadow: 0 0 8px rgba(0,0,0,0.4);
-      pointer-events: none; z-index: 3; transform: translateX(-50%);
-    }
-    .ba-handle {
-      position: absolute; top: 50%; width: 44px; height: 44px;
-      border-radius: 50%; background: var(--white);
-      border: 3px solid var(--blue);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--blue); font-size: 1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-      pointer-events: none; z-index: 4; transform: translate(-50%,-50%);
+    /* GALLERY */
+    #gallery {
+      background: var(--cream); padding: 6rem 2.5rem;
+      border-top: 1px solid var(--gray-lt); border-bottom: 1px solid var(--gray-lt);
     }
 
-    /* Photo grid */
-    .photo-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem; margin-top: 1.75rem;
+    /* Photo grid: 3 cols top, 4 cols bottom */
+    .gallery-grid-top {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem; margin-bottom: 1.25rem;
     }
-    .photo-grid-item {
-      position: relative; border-radius: 8px; overflow: hidden;
+    .gallery-grid-bottom {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* Image card */
+    .gallery-img-card {
+      position: relative; border-radius: 4px; overflow: hidden;
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
-    .photo-grid-item img {
+    .gallery-img-card img {
       width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
       transition: transform 0.4s ease;
     }
-    .photo-grid-item:hover img { transform: scale(1.03); }
-    .photo-grid-item .photo-caption {
+    .gallery-img-card:hover img { transform: scale(1.04); }
+    .gallery-img-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.65));
-      padding: 1.5rem 0.85rem 0.75rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.68));
+      padding: 2rem 0.9rem 0.75rem;
     }
-    .photo-caption p {
+    .gallery-img-caption p {
       font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem;
       font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #fff;
     }
 
-    /* ── SERVICES ── */
+    /* SERVICES */
     #services { background: var(--white); padding: 6rem 2.5rem; }
     .services-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -304,8 +262,11 @@
     }
     .service-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.6; }
 
-    /* ── ABOUT / WHY MIKES ── */
-    #about { background: var(--cream); padding: 6rem 2.5rem; border-top: 1px solid var(--gray-lt); border-bottom: 1px solid var(--gray-lt); }
+    /* ABOUT */
+    #about {
+      background: var(--cream); padding: 6rem 2.5rem;
+      border-top: 1px solid var(--gray-lt); border-bottom: 1px solid var(--gray-lt);
+    }
     .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
     .why-items { display: flex; flex-direction: column; }
     .why-item { padding: 1.75rem 0; border-bottom: 1px solid var(--gray-lt); }
@@ -338,7 +299,7 @@
     .risk-item h5 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin-bottom: 0.2rem; }
     .risk-item p { color: var(--gray); font-size: 0.87rem; line-height: 1.6; }
 
-    /* ── FAQ ── */
+    /* FAQ */
     #faq { background: var(--white); padding: 6rem 2.5rem; }
     .faq-list { max-width: 780px; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 2rem; }
     .faq-item {
@@ -359,7 +320,7 @@
     .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
     .faq-a p { padding: 0 1.4rem 1.2rem; font-size: 0.95rem; color: var(--gray); line-height: 1.7; }
 
-    /* ── DISCOUNTS ── */
+    /* DISCOUNTS */
     #discounts { background: var(--black); padding: 4rem 2.5rem; }
     .discount-inner {
       max-width: 1100px; margin: 0 auto;
@@ -378,8 +339,11 @@
     .discount-text p { color: #999; font-size: 1rem; line-height: 1.65; margin-top: 0.5rem; max-width: 500px; }
     .discount-cta { flex-shrink: 0; }
 
-    /* ── SERVICE AREA ── */
-    #area { background: var(--cream); padding: 5rem 2.5rem; border-top: 1px solid var(--gray-lt); border-bottom: 1px solid var(--gray-lt); }
+    /* SERVICE AREA */
+    #area {
+      background: var(--cream); padding: 5rem 2.5rem;
+      border-top: 1px solid var(--gray-lt); border-bottom: 1px solid var(--gray-lt);
+    }
     .area-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 5rem; align-items: center; }
     .area-stat {
       text-align: center; padding: 2rem;
@@ -394,7 +358,7 @@
     .area-text p { color: var(--gray-dk); font-size: 1rem; line-height: 1.75; margin-bottom: 1rem; }
     .area-text strong { color: var(--black); font-weight: 600; }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     #contact { background: var(--white); padding: 6rem 2.5rem; }
     .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
     .contact-methods { display: flex; flex-direction: column; }
@@ -423,7 +387,7 @@
     .detail-row .dl { color: var(--gray); font-weight: 500; }
     .detail-row .dv { color: var(--black); font-weight: 600; text-align: right; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background: var(--black); padding: 2.5rem;
       display: flex; align-items: center; justify-content: space-between;
@@ -440,7 +404,7 @@
     .footer-links a { color: #444; font-size: 0.8rem; transition: color 0.15s; }
     .footer-links a:hover { color: #999; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-mascot { display: none; }
@@ -456,8 +420,8 @@
       .nav-inner { padding: 0 1.25rem; }
       #hero { padding: 5rem 1.25rem 3.5rem; }
       #gallery, #services, #about, #faq, #discounts, #area, #contact { padding: 4rem 1.25rem; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .photo-grid { grid-template-columns: 1fr; }
+      .gallery-grid-top { grid-template-columns: 1fr 1fr; }
+      .gallery-grid-bottom { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .info-strip { gap: 0.75rem; padding: 0.85rem 1.25rem; }
       footer { flex-direction: column; text-align: center; padding: 2rem 1.25rem; }
@@ -491,7 +455,6 @@
         </button>
       </div>
     </div>
-    <!-- Mobile drawer -->
     <div class="nav-drawer" id="nav-drawer">
       <ul>
         <li><a href="#gallery">Gallery</a></li>
@@ -540,89 +503,49 @@
     <span class="strip-item"><i class="fa-solid fa-hand-holding-dollar"></i><span>Complimentary</span> Estimates</span>
     <span class="strip-item"><i class="fa-solid fa-building"></i>Residential <span>&amp;</span> Commercial</span>
     <span class="strip-item"><i class="fa-solid fa-map-pin"></i>Farmville <span>to</span> Virginia Beach</span>
-    <span class="strip-item"><i class="fa-solid fa-calendar-check"></i>Schedule Your <span>2026</span> Appointment</span>
+    <span class="strip-item"><i class="fa-solid fa-calendar-check"></i>Schedule Your Appointment</span>
   </div>
 
-  <!-- GALLERY — Before/After Sliders -->
+  <!-- GALLERY -->
   <section id="gallery">
     <div class="max-w">
       <span class="section-tag">Real Results</span>
-      <h2>Before &amp; After</h2>
-      <p class="section-lead">These are our actual jobs — drag the slider to see the transformation.</p>
+      <h2>Our Work</h2>
+      <p class="section-lead">Photos from actual jobs across Virginia.</p>
 
-      <div class="gallery-grid">
-
-        <div class="fade-in">
-          <p class="gallery-label"><i class="fa-solid fa-house"></i> House Siding</p>
-          <div class="ba-wrap">
-            <img src="assets/images/gallery/siding_after.jpeg" alt="House siding after washing">
-            <div class="ba-before" style="width:50%">
-              <img src="assets/images/gallery/siding_before.jpeg" alt="House siding before washing">
-            </div>
-            <div class="ba-label-before">Before</div>
-            <div class="ba-label-after">After</div>
-            <div class="ba-divider" style="left:50%"></div>
-            <div class="ba-handle" style="left:50%"><i class="fa-solid fa-arrows-left-right"></i></div>
-          </div>
+      <!-- Top row: 3 images -->
+      <div class="gallery-grid-top fade-in">
+        <div class="gallery-img-card">
+          <img src="assets/images/gallery/driveway-ba.jpeg" alt="Driveway before and after pressure washing">
+          <div class="gallery-img-caption"><p>Driveway</p></div>
         </div>
-
-        <div class="fade-in">
-          <p class="gallery-label"><i class="fa-solid fa-road"></i> Driveway</p>
-          <div class="ba-wrap">
-            <img src="assets/images/gallery/driveway_after.jpeg" alt="Driveway after pressure washing">
-            <div class="ba-before" style="width:50%">
-              <img src="assets/images/gallery/driveway_before.jpeg" alt="Driveway before pressure washing">
-            </div>
-            <div class="ba-label-before">Before</div>
-            <div class="ba-label-after">After</div>
-            <div class="ba-divider" style="left:50%"></div>
-            <div class="ba-handle" style="left:50%"><i class="fa-solid fa-arrows-left-right"></i></div>
-          </div>
+        <div class="gallery-img-card">
+          <img src="assets/images/gallery/house-ba.jpeg" alt="House washing before and after">
+          <div class="gallery-img-caption"><p>House Washing</p></div>
         </div>
-
-        <div class="fade-in">
-          <p class="gallery-label"><i class="fa-solid fa-person-walking"></i> Walkway</p>
-          <div class="ba-wrap">
-            <img src="assets/images/gallery/walkway_after.jpeg" alt="Walkway after pressure washing">
-            <div class="ba-before" style="width:50%">
-              <img src="assets/images/gallery/walkway_before.jpeg" alt="Walkway before pressure washing">
-            </div>
-            <div class="ba-label-before">Before</div>
-            <div class="ba-label-after">After</div>
-            <div class="ba-divider" style="left:50%"></div>
-            <div class="ba-handle" style="left:50%"><i class="fa-solid fa-arrows-left-right"></i></div>
-          </div>
+        <div class="gallery-img-card">
+          <img src="assets/images/gallery/siding-ba.jpeg" alt="House siding before and after washing">
+          <div class="gallery-img-caption"><p>House Siding</p></div>
         </div>
-
-        <div class="fade-in">
-          <p class="gallery-label"><i class="fa-solid fa-house-chimney"></i> House Washing</p>
-          <div class="ba-wrap">
-            <img src="assets/images/gallery/house_after.jpeg" alt="House washing after">
-            <div class="ba-before" style="width:50%">
-              <img src="assets/images/gallery/house_before.jpeg" alt="House washing before">
-            </div>
-            <div class="ba-label-before">Before</div>
-            <div class="ba-label-after">After</div>
-            <div class="ba-divider" style="left:50%"></div>
-            <div class="ba-handle" style="left:50%"><i class="fa-solid fa-arrows-left-right"></i></div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- Additional photo grid -->
-      <div class="photo-grid fade-in">
-        <div class="photo-grid-item">
-          <img src="assets/images/gallery/commercial-bleachers.jpeg" alt="Mike power washing bleachers at Virginia Motorsports Park">
-          <div class="photo-caption"><p>Commercial — Virginia Motorsports Park</p></div>
+      <!-- Bottom row: 4 images -->
+      <div class="gallery-grid-bottom fade-in">
+        <div class="gallery-img-card">
+          <img src="assets/images/gallery/walkway-ba.jpeg" alt="Walkway before and after pressure washing">
+          <div class="gallery-img-caption"><p>Walkway</p></div>
         </div>
-        <div class="photo-grid-item">
+        <div class="gallery-img-card">
           <img src="assets/images/gallery/steps.jpeg" alt="Steps and entryway cleaning">
-          <div class="photo-caption"><p>Steps &amp; Entryway</p></div>
+          <div class="gallery-img-caption"><p>Steps &amp; Entryway</p></div>
         </div>
-        <div class="photo-grid-item">
+        <div class="gallery-img-card">
           <img src="assets/images/gallery/patio.jpeg" alt="Stamped concrete patio cleaning">
-          <div class="photo-caption"><p>Patios &amp; Concrete</p></div>
+          <div class="gallery-img-caption"><p>Patio &amp; Concrete</p></div>
+        </div>
+        <div class="gallery-img-card">
+          <img src="assets/images/gallery/commercial-bleachers.jpeg" alt="Commercial job at Virginia Motorsports Park">
+          <div class="gallery-img-caption"><p>Commercial</p></div>
         </div>
       </div>
 
@@ -635,7 +558,7 @@
       <span class="section-tag">What We Clean</span>
       <h2>Our Services</h2>
       <p class="section-lead">
-        From driveways and sidewalks to full house washes and commercial properties — we clean it all.
+        From driveways and sidewalks to full house washes and commercial properties, we clean it all.
       </p>
       <div class="services-grid">
 
@@ -648,7 +571,7 @@
         <div class="service-card fade-in">
           <div class="service-icon"><i class="fa-solid fa-person-walking"></i></div>
           <h3>Sidewalks &amp; Walkways</h3>
-          <p>Moss, algae, and grime stripped from your walkways — safer looking and cleaner.</p>
+          <p>Moss, algae, and grime stripped from your walkways. Safer looking and cleaner.</p>
         </div>
 
         <div class="service-card fade-in">
@@ -672,7 +595,7 @@
         <div class="service-card fade-in">
           <div class="service-icon"><i class="fa-solid fa-building"></i></div>
           <h3>Commercial</h3>
-          <p>Box stores, restaurants, and commercial properties — we have the equipment to handle any size job.</p>
+          <p>Box stores, restaurants, and commercial properties. We have the equipment to handle any size job.</p>
         </div>
 
         <div class="service-card fade-in">
@@ -698,7 +621,7 @@
         <div>
           <span class="section-tag">Why Hire Mike's?</span>
           <h2>The Right Team for the Job</h2>
-          <p class="section-lead">Hiring a professional power washing company like Mikes Power Washing is essential to ensure that the job is done safely and effectively.</p>
+          <p class="section-lead">Hiring a professional power washing company like Mike's is essential to ensure the job is done safely and effectively.</p>
           <div class="why-items">
             <div class="why-item">
               <p class="why-label">01</p>
@@ -708,18 +631,18 @@
             <div class="why-item">
               <p class="why-label">02</p>
               <h4>State-of-the-Art Equipment</h4>
-              <p>Mikes Power Washing uses state-of-the-art equipment to deliver high-pressure water sprays safely and effectively. Our equipment is more potent than consumer-grade pressure washers, making removing even the toughest stains and buildup easier.</p>
+              <p>Mike's Powerwashing uses state-of-the-art equipment to deliver high-pressure water sprays safely and effectively. Our equipment is more potent than consumer-grade pressure washers, making it easier to remove even the toughest stains and buildup.</p>
             </div>
             <div class="why-item">
               <p class="why-label">03</p>
               <h4>Insurance Coverage</h4>
-              <p>Mikes Power Washing is a fully insured company, which means that you are protected in the event of any damage during the power washing process. This provides peace of mind for homeowners who want to protect their property.</p>
+              <p>Mike's Powerwashing is a fully insured company, which means you are protected in the event of any damage during the power washing process. This provides peace of mind for homeowners who want to protect their property.</p>
             </div>
           </div>
         </div>
         <div class="about-right">
           <h3>Risks of DIY Power Washing</h3>
-          <p>While it may be tempting to try to power wash your property yourself, there are significant risks associated with DIY power washing.</p>
+          <p>While it may be tempting to power wash your property yourself, there are significant risks associated with DIY power washing.</p>
           <div class="risk-list">
             <div class="risk-item">
               <span class="risk-num">01</span>
@@ -732,14 +655,14 @@
               <span class="risk-num">02</span>
               <div>
                 <h5>Personal Injury</h5>
-                <p>Power washing involves working with high-pressure water sprays that can be dangerous if improperly handled. DIY power washing can lead to personal injury due to falls, slips, or other accidents.</p>
+                <p>Power washing involves working with high-pressure water sprays that can be dangerous if not properly handled. DIY power washing can lead to personal injury due to falls, slips, or other accidents.</p>
               </div>
             </div>
             <div class="risk-item">
               <span class="risk-num">03</span>
               <div>
                 <h5>Environmental Damage</h5>
-                <p>Improper disposal of cleaning solutions used in power washing can lead to environmental damage. Mikes knows how to properly handle and dispose of cleaning solutions to ensure we do not harm the environment.</p>
+                <p>Improper disposal of cleaning solutions used in power washing can lead to environmental damage. Mike's knows how to properly handle and dispose of cleaning solutions to ensure we do not harm the environment.</p>
               </div>
             </div>
           </div>
@@ -773,7 +696,7 @@
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="faq-a">
-            <p>Every job is different depending on the size and condition of the surface. We offer complimentary estimates — just call or text 804-986-2760 or fill out our estimate form and we'll get back to you quickly with a price. No obligation.</p>
+            <p>Every job is different depending on the size and condition of the surface. We offer complimentary estimates. Just call or text 804-986-2760 or fill out our estimate form and we'll get back to you quickly with a price. No obligation.</p>
           </div>
         </div>
 
@@ -783,7 +706,7 @@
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="faq-a">
-            <p>Not all surfaces can withstand the same pressure. We adjust our equipment settings based on the surface being cleaned. For delicate surfaces like house siding, we use soft washing — a lower-pressure method — to ensure effective cleaning without causing damage. We specialize in cleaning diverse surfaces safely.</p>
+            <p>Not all surfaces can withstand the same pressure. We adjust our equipment settings based on the surface being cleaned. For delicate surfaces like house siding, we use soft washing, a lower-pressure method, to ensure effective cleaning without causing damage. We specialize in cleaning diverse surfaces safely.</p>
           </div>
         </div>
 
@@ -803,7 +726,7 @@
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="faq-a">
-            <p>For most residential properties, we recommend power washing once a year to maintain appearance and prevent buildup of dirt, mold, and mildew. Properties with heavy tree coverage or in humid areas may benefit from cleaning every 6–9 months. Don't wait until we're fully booked — contact us to schedule your 2026 appointment.</p>
+            <p>For most residential properties, we recommend power washing once a year to maintain appearance and prevent buildup of dirt, mold, and mildew. Properties with heavy tree coverage or in humid areas may benefit from cleaning every 6 to 9 months. Don't wait until we're fully booked. Contact us to schedule your appointment.</p>
           </div>
         </div>
 
@@ -823,7 +746,7 @@
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="faq-a">
-            <p>Yes! We are committed to offering discounts to senior citizens, first responders, and military personnel. Mention your eligibility when you request your estimate.</p>
+            <p>Yes. We are committed to offering discounts to senior citizens, first responders, and military personnel. Mention your eligibility when you request your estimate.</p>
           </div>
         </div>
 
@@ -871,7 +794,7 @@
         <span class="section-tag">Service Area</span>
         <h2>Farmville to Virginia Beach</h2>
         <p>With our main office in Lanexa, VA, we serve a broad area across Virginia. We specialize in cleaning diverse surfaces for <strong>residential homes, box stores, and restaurants.</strong></p>
-        <p>Don't wait until we're fully booked — contact Mike's Powerwashing LLC to schedule your 2026 appointment.</p>
+        <p>Don't wait until we're fully booked. Contact Mike's Powerwashing LLC to schedule your appointment.</p>
         <div class="hero-btns" style="margin-top:1.5rem;">
           <a href="pages/estimate.html" class="btn-primary"><i class="fa-solid fa-file-invoice-dollar"></i> Get a Free Estimate</a>
           <a href="tel:8049862760" class="btn-ghost"><i class="fa-solid fa-phone"></i> 804-986-2760</a>
@@ -887,7 +810,7 @@
         <div>
           <span class="section-tag">Get in Touch</span>
           <h2>Contact Mike's</h2>
-          <p class="section-lead">Don't wait until we're fully booked — contact Mike's Powerwashing LLC to schedule your 2026 appointment.</p>
+          <p class="section-lead">Don't wait until we're fully booked. Contact Mike's Powerwashing LLC to schedule your appointment.</p>
           <div class="contact-methods">
             <a href="tel:8049862760" class="contact-method">
               <div>
@@ -930,7 +853,7 @@
             </div>
             <div class="detail-row">
               <span class="dl">Licensed &amp; Insured</span>
-              <span class="dv">Yes — Fully</span>
+              <span class="dv">Yes, Fully</span>
             </div>
             <div class="detail-row">
               <span class="dl">Services</span>
@@ -952,7 +875,7 @@
       <img src="assets/images/logo.jpeg" alt="Mikes Powerwashing" />
       <div class="footer-logo-text">Mikes Powerwashing LLC</div>
     </div>
-    <p>© 2026 Mikes Powerwashing LLC — Lanexa, Virginia</p>
+    <p>© 2026 Mikes Powerwashing LLC, Lanexa, Virginia</p>
     <div class="footer-links">
       <a href="#gallery">Gallery</a>
       <a href="#services">Services</a>
@@ -971,57 +894,6 @@
       hamburger.addEventListener('click', () => drawer.classList.toggle('open'));
       drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
     }
-
-    /* Before/After Sliders */
-    function initSlider(wrap) {
-      const beforePanel = wrap.querySelector('.ba-before');
-      const beforeImg   = beforePanel.querySelector('img');
-      const divider     = wrap.querySelector('.ba-divider');
-      const handle      = wrap.querySelector('.ba-handle');
-      let dragging      = false;
-
-      function syncImageWidth() {
-        beforeImg.style.width = wrap.offsetWidth + 'px';
-      }
-      syncImageWidth();
-      window.addEventListener('resize', syncImageWidth);
-
-      function setPos(pct) {
-        pct = Math.max(2, Math.min(98, pct));
-        beforePanel.style.width = pct + '%';
-        divider.style.left      = pct + '%';
-        handle.style.left       = pct + '%';
-      }
-      setPos(50);
-
-      function pctFromX(clientX) {
-        const rect = wrap.getBoundingClientRect();
-        return ((clientX - rect.left) / rect.width) * 100;
-      }
-
-      wrap.addEventListener('mousedown',   e => { dragging = true; setPos(pctFromX(e.clientX)); });
-      window.addEventListener('mousemove', e => { if (dragging) setPos(pctFromX(e.clientX)); });
-      window.addEventListener('mouseup',   ()  => { dragging = false; });
-
-      let touchStartX = 0, touchStartY = 0, touchDir = null;
-      wrap.addEventListener('touchstart', e => {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        touchDir = null; dragging = false;
-      }, { passive: true });
-      wrap.addEventListener('touchmove', e => {
-        const dx = e.touches[0].clientX - touchStartX;
-        const dy = e.touches[0].clientY - touchStartY;
-        if (touchDir === null) {
-          if (Math.abs(dx) < 4 && Math.abs(dy) < 4) return;
-          touchDir = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
-          if (touchDir === 'h') dragging = true;
-        }
-        if (touchDir === 'h') { e.preventDefault(); setPos(pctFromX(e.touches[0].clientX)); }
-      }, { passive: false });
-      window.addEventListener('touchend', () => { dragging = false; touchDir = null; }, { passive: true });
-    }
-    document.querySelectorAll('.ba-wrap').forEach(initSlider);
 
     /* FAQ Accordion */
     document.querySelectorAll('.faq-q').forEach(btn => {
