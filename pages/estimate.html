@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Estimate | Mike's Powerwashing LLC</title>
+  <meta name="description" content="Request a free pressure washing estimate from Mike's Powerwashing LLC. Serving Farmville to Virginia Beach, VA. Call 804-986-2760.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #0f0f0f;
+      --gray-dk: #3a3a3a;
+      --gray:    #6b6b6b;
+      --gray-lt: #e4e4e0;
+      --cream:   #f5f4f0;
+      --white:   #ffffff;
+      --blue:    #1250cc;
+      --blue-dk: #0e3fa0;
+      --blue-lt: #eef2fc;
+      --radius:  6px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(--black); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white); border-bottom: 1px solid var(--gray-lt);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 68px; max-width: 1100px; margin: 0 auto;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-logo img { height: 40px; width: auto; object-fit: contain; }
+    .nav-logo-text {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem;
+      font-weight: 800; color: var(--black); letter-spacing: 0.5px;
+      text-transform: uppercase; line-height: 1.1;
+    }
+    .nav-logo-text span { color: var(--blue); display: block; font-size: 0.7rem; letter-spacing: 2px; font-weight: 600; }
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+    .back-link {
+      text-decoration: none; color: var(--gray); font-size: 0.88rem; font-weight: 500;
+      display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--black); }
+    .nav-phone {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem;
+      font-weight: 700; color: var(--blue); letter-spacing: 0.5px;
+      display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s;
+    }
+    .nav-phone:hover { color: var(--blue-dk); }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--black); padding: 4.5rem 2.5rem 3.5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(18,80,204,0.06) 40px, rgba(18,80,204,0.06) 80px
+      );
+      pointer-events: none;
+    }
+    .page-header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-header h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 800;
+      text-transform: uppercase; color: var(--white); letter-spacing: -0.5px;
+      line-height: 0.95; margin-bottom: 1rem;
+    }
+    .page-header h1 em { font-style: normal; color: var(--blue); }
+    .page-header p { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 520px; line-height: 1.6; }
+
+    /* LAYOUT */
+    .estimate-section { background: var(--cream); padding: 4rem 2.5rem 6rem; }
+    .estimate-layout {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 340px;
+      gap: 3rem; align-items: start;
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: var(--white); border: 1px solid var(--gray-lt);
+      border-radius: 10px; padding: 2.5rem;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+    }
+    .form-card h2 {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.9rem;
+      font-weight: 800; text-transform: uppercase; color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+    .form-card .form-intro { color: var(--gray); font-size: 0.9rem; margin-bottom: 2rem; line-height: 1.6; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .form-group label {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--gray);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 1rem; border: 1.5px solid var(--gray-lt);
+      border-radius: var(--radius); font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem; color: var(--black); background: var(--white);
+      width: 100%; transition: border-color 0.15s; appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { outline: none; border-color: var(--blue); }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-note { font-size: 0.78rem; color: var(--gray); }
+
+    /* Checklist services */
+    .services-check {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1rem; margin-bottom: 1.25rem;
+    }
+    .check-label {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem; color: var(--gray-dk); cursor: pointer;
+      padding: 0.4rem 0;
+    }
+    .check-label input[type="checkbox"] {
+      width: 16px; height: 16px; accent-color: var(--blue);
+      border-radius: 3px; cursor: pointer; flex-shrink: 0;
+    }
+    .check-label:hover { color: var(--black); }
+
+    .btn-submit {
+      background: var(--blue); color: var(--white); padding: 1rem 2.5rem;
+      border-radius: var(--radius); font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      transition: background 0.15s; width: 100%; justify-content: center;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--blue-dk); }
+    .form-fine-print { text-align: center; color: var(--gray); font-size: 0.8rem; margin-top: 0.85rem; }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+    .sidebar-card {
+      background: var(--white); border: 1px solid var(--gray-lt);
+      border-radius: 10px; padding: 1.75rem;
+    }
+    .sidebar-card h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem;
+      font-weight: 700; text-transform: uppercase; color: var(--black);
+      margin-bottom: 1rem; letter-spacing: 0.3px;
+    }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 0; border-bottom: 1px solid var(--gray-lt);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .contact-item:first-of-type { border-top: 1px solid var(--gray-lt); }
+    .contact-item:last-of-type { border-bottom: none; }
+    .contact-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--blue-lt); color: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; flex-shrink: 0;
+    }
+    .contact-item-text .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); }
+    .contact-item-text .value { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--black); }
+    .contact-item:hover .value { color: var(--blue); }
+
+    .discount-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .discount-tag {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.88rem; font-weight: 600; color: var(--gray-dk);
+      padding: 0.5rem 0; border-bottom: 1px solid var(--gray-lt);
+    }
+    .discount-tag:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .discount-tag i { color: var(--blue); }
+
+    .info-list { display: flex; flex-direction: column; }
+    .info-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.7rem 0; border-bottom: 1px solid var(--gray-lt); font-size: 0.85rem;
+    }
+    .info-row:last-of-type { border-bottom: none; }
+    .info-row .il { color: var(--gray); font-weight: 500; }
+    .info-row .iv { color: var(--black); font-weight: 600; text-align: right; font-size: 0.82rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--black); padding: 1.5rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { color: #333; font-size: 0.8rem; }
+    footer a { color: #555; font-size: 0.8rem; transition: color 0.15s; }
+    footer a:hover { color: #999; }
+
+    @media (max-width: 760px) {
+      .nav-inner { padding: 0 1.25rem; }
+      .nav-right .back-link { display: none; }
+      .page-header { padding: 3rem 1.25rem 2.5rem; }
+      .estimate-section { padding: 2.5rem 1.25rem 4rem; }
+      .estimate-layout { grid-template-columns: 1fr; }
+      .form-card { padding: 1.75rem 1.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .services-check { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <img src="../assets/images/logo.jpeg" alt="Mikes Powerwashing Logo" />
+        <div class="nav-logo-text">
+          Mikes Powerwashing LLC
+          <span>Lanexa, Virginia</span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        <a href="tel:8049862760" class="nav-phone"><i class="fa-solid fa-phone"></i> 804-986-2760</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>Get a<br><em>Free Estimate.</em></h1>
+      <p>Fill out the form and we'll get back to you quickly with a price. No obligation, no spam — just a straight answer.</p>
+    </div>
+  </div>
+
+  <!-- FORM + SIDEBAR -->
+  <section class="estimate-section">
+    <div class="estimate-layout">
+
+      <!-- FORM -->
+      <div class="form-card">
+        <h2>Tell Us About Your Job</h2>
+        <p class="form-intro">The more detail you give us, the more accurate your estimate will be. Photos are always helpful.</p>
+
+        <form
+          action="https://formsubmit.co/Contactmikespowerwashing@gmail.com"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input type="hidden" name="_subject" value="New Estimate Request — Mike's Powerwashing LLC">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first_name" required placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last_name" required placeholder="Smith">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone / Text *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(804) 555-0000">
+              <span class="form-note">We respond quickly to calls and texts.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Property Address *</label>
+            <input type="text" id="address" name="address" required placeholder="123 Main St, Lanexa, VA 23089">
+          </div>
+
+          <div class="form-group">
+            <label>What Needs Cleaning? (Check all that apply)</label>
+            <div class="services-check">
+              <label class="check-label"><input type="checkbox" name="service_driveway" value="Driveway"> Driveway</label>
+              <label class="check-label"><input type="checkbox" name="service_sidewalk" value="Sidewalk / Walkway"> Sidewalk / Walkway</label>
+              <label class="check-label"><input type="checkbox" name="service_house" value="House Washing"> House Washing</label>
+              <label class="check-label"><input type="checkbox" name="service_patio" value="Patio / Deck"> Patio / Deck</label>
+              <label class="check-label"><input type="checkbox" name="service_steps" value="Steps / Entryway"> Steps / Entryway</label>
+              <label class="check-label"><input type="checkbox" name="service_commercial" value="Commercial"> Commercial Property</label>
+              <label class="check-label"><input type="checkbox" name="service_brick" value="Brick / Concrete"> Brick / Concrete</label>
+              <label class="check-label"><input type="checkbox" name="service_other" value="Other"> Other</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="size">Approximate Area Size</label>
+            <select id="size" name="approximate_size">
+              <option value="" disabled selected>How big is the area?</option>
+              <option value="Small (under 200 sq ft)">Small — under 200 sq ft</option>
+              <option value="Medium (200–500 sq ft)">Medium — 200 to 500 sq ft</option>
+              <option value="Large (500–1000 sq ft)">Large — 500 to 1,000 sq ft</option>
+              <option value="Very Large (1000+ sq ft)">Very Large — over 1,000 sq ft</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Details</label>
+            <textarea id="notes" name="notes" placeholder="Describe what needs to be cleaned, any stubborn stains, how long since the last wash, or anything else we should know."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="photos">Attach Photos (optional)</label>
+            <input type="file" id="photos" name="photos" accept="image/*" multiple style="padding:0.5rem; min-height:auto; border-style:dashed; background:var(--cream);">
+            <span class="form-note">Photos help us give you a more accurate estimate. JPEG or PNG.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="discount">Discount Eligibility</label>
+            <select id="discount" name="discount_eligibility">
+              <option value="" disabled selected>Select if applicable...</option>
+              <option value="None">None</option>
+              <option value="Senior Citizen">Senior Citizen</option>
+              <option value="First Responder">First Responder</option>
+              <option value="Military / Veteran">Military / Veteran</option>
+            </select>
+            <span class="form-note">We offer discounts to senior citizens, first responders, and military personnel.</span>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane"></i> Submit Estimate Request
+          </button>
+          <p class="form-fine-print">We usually respond within a few hours during business hours.</p>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+
+        <div class="sidebar-card">
+          <h3>Contact Directly</h3>
+          <a href="tel:8049862760" class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-item-text">
+              <div class="label">Call / Text</div>
+              <div class="value">804-986-2760</div>
+            </div>
+          </a>
+          <a href="mailto:Contactmikespowerwashing@gmail.com" class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-item-text">
+              <div class="label">Email</div>
+              <div class="value" style="font-size:0.88rem;">Contactmikespowerwashing<br>@gmail.com</div>
+            </div>
+          </a>
+          <a href="sms:8049862760" class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-comment-sms"></i></div>
+            <div class="contact-item-text">
+              <div class="label">Text Message</div>
+              <div class="value">Send a Text</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Discounts</h3>
+          <div class="discount-list">
+            <div class="discount-tag"><i class="fa-solid fa-user-shield"></i> Senior Citizens</div>
+            <div class="discount-tag"><i class="fa-solid fa-shield-halved"></i> First Responders</div>
+            <div class="discount-tag"><i class="fa-solid fa-star"></i> Military Personnel</div>
+          </div>
+          <p style="margin-top:1rem; font-size:0.82rem; color:var(--gray); line-height:1.6;">We are committed to offering discounts to those who serve our community and country. Mention your eligibility in your request.</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Service Info</h3>
+          <div class="info-list">
+            <div class="info-row">
+              <span class="il">Location</span>
+              <span class="iv">Lanexa, Virginia</span>
+            </div>
+            <div class="info-row">
+              <span class="il">Service Area</span>
+              <span class="iv">Farmville to Virginia Beach</span>
+            </div>
+            <div class="info-row">
+              <span class="il">Estimates</span>
+              <span class="iv">Always Free</span>
+            </div>
+            <div class="info-row">
+              <span class="il">Licensed &amp; Insured</span>
+              <span class="iv">Yes — Fully</span>
+            </div>
+            <div class="info-row">
+              <span class="il">Booking</span>
+              <span class="iv">Schedule for 2026</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="color:#444;">© 2026 Mike's Powerwashing LLC — Lanexa, Virginia</p>
+    <a href="../index.html">&#8592; Back to Home</a>
+  </footer>
+
+  <script>
+    /* Mobile nav hamburger for estimate page */
+    const hamburger = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    if (hamburger && drawer) {
+      hamburger.addEventListener('click', () => drawer.classList.toggle('open'));
+    }
+  </script>
+
+</body>
+</html>
